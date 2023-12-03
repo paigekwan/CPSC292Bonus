@@ -1,0 +1,21 @@
+---
+title: "Bonus Assignment"
+output: html_document
+date: "2023-12-03"
+---
+
+```{r setup}
+library(usethis)
+library(gitcreds)
+```
+ Generate PAT: 
+ 
+```{r}
+usethis::create_github_token()
+```
+ Token: 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
+ 
+```{r}
+gitcreds::gitcreds_set()
+```
+ 

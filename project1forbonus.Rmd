@@ -1,0 +1,33 @@
+---
+title: "Project 1 Visualizations"
+output: html_document
+date: "2023-12-03"
+---
+
+```{r setup, include=FALSE}
+library(readr)
+library(tidyr)
+library(ggplot2)
+library(viridis)
+```
+
+## R Markdown
+
+```{r}
+mask.use.county <- read_csv("data copy 2/mask-use-by-county.csv")
+mask.use.county
+```
+
+```{r}
+orange.county.masks <- mask.use.county[216,]
+orange.county.masks <- pivot_longer(orange.county.masks, cols=!COUNTYFP)
+orange.county.masks
+```
+
+```{r}
+orange.county <- c(0.023, 0.021, 0.046, 0.156, 0.754)
+pie.colors <- c("pink","#FF33cc","#990099","darkblue","#CC99FF")
+labels <- c("NEVER", "RARELY", "SOMETIMES", "FREQUENTLY", "ALWAYS")
+pie(orange.county, labels, main = "Frequency of Mask Use in Orange County", col = c("pink","#FF33cc","#990099","darkblue","#CC99FF"))
+```
+
